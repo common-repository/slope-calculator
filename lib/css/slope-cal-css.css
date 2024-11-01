@@ -1,0 +1,442 @@
+@font-face {
+    font-family: 'SF Pro';
+    src: url(../fonts/SFPRODISPLAYREGULAR.OTF);
+    font-display: swap;
+}
+
+.slope-main * {
+    all: unset;
+}
+
+:root {
+    --primary-color: #00CBB8;
+    --secondary-color: #0092CA;
+    --white-color: #fffffF;
+    --border-color: #0695ce;
+    --gray-color: #AAAAAA;
+    --light-blue-color: #E0EEF3;
+    --font-size-h1: 60px;
+    --font-size-h2: 40px;
+    --font-size-h3: 30px;
+    --font-size-h4: 24px;
+    --font-size-default: 20px;
+    --default-border-radius: 20px;
+    --default-border-radius-small: 15px;
+    --default-border-radius-input: 10px;
+    --default-font-family: 'SF Pro', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+
+.slope-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+    /* overflow: auto; */
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+
+
+}
+
+.slope__nav h2 {
+    font-size: var(--font-size-h1);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    padding: 0 10px 0 0;
+}
+
+.slope-container {
+    background-color: var(--white-color);
+    border-radius: var(--default-border-radius-small);
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    /* overflow-x: hidden; */
+    border: 6px solid var(--border-color);
+    width: 80%;
+    max-width: 1400px;
+    font-family: var(--default-font-family);
+    font-size: var(--font-size-default);
+    line-height: 1.5;
+    max-height: 100%;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.slope-container::-webkit-scrollbar,
+.right__area::-webkit-scrollbar {
+    background-color: var(--light-blue-color);
+    width: 10px;
+}
+
+.slope-container::-webkit-scrollbar-thumb,
+.right__area::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    width: 10px;
+    border-radius: var(--default-border-radius-input);
+}
+
+.slope-container::after {
+    content: "";
+    background-color: var(--white-color);
+    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    border-radius: var(--default-border-radius);
+    z-index: 0;
+}
+
+.left__area {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    border-right: 2px solid var(--gray-color);
+    border-radius: var(--default-border-radius-small) 0 0 var(--default-border-radius-small);
+    width: 35%;
+    padding: 30px;
+    min-height: 450px;
+}
+
+
+div.slope__nav,
+.slope__footer {
+    display: flex;
+    align-items: flex-start;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    z-index: 1;
+    padding: 20px 0 0 50px;
+    position: relative;
+    height: 100%;
+}
+
+.slope__footer {
+    background: linear-gradient(var(--white-color), var(--light-blue-color));
+    padding-bottom: 30px;
+    height: 100%;
+}
+
+.slope__footer p {
+    padding-right: 20px;
+}
+
+button.type__navigator {
+    background: transparent;
+    color: var(--gray-color);
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-h4);
+    font-weight: 500;
+    width: 100%;
+    padding: 3px 0 10px 3px;
+    margin: 3px 0;
+    text-align: left;
+    transition: 300ms all ease-in-out;
+}
+
+button.type__navigator:hover {
+    cursor: pointer;
+}
+
+button.type__navigator.active {
+    border-right: 3px solid #000000;
+    color: #000000;
+}
+
+.social__links {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.social__links a {
+    background-color: var(--white-color);
+    border-radius: 50%;
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-content: center;
+}
+
+.left__area,
+.right__area {
+    padding: 20px 0 0;
+}
+
+.right__area {
+    z-index: 3;
+    display: grid;
+    align-items: center;
+    max-width: 600px;
+    width: 50%;
+    margin: auto;
+    padding: 30px;
+    position: relative;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.right__area h3 {
+    text-align: left;
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+}
+
+.input__wrapper {
+    position: relative;
+}
+
+.right__area .inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 500px;
+    align-items: center;
+    transition: 0.8s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    display: none;
+
+}
+
+.right__area form {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    max-width: 550px;
+}
+
+.inputs.visible {
+    opacity: 1;
+    display: flex;
+}
+
+.form__group {
+    min-width: 230px;
+    max-width: 235px;
+}
+
+.form__group label {
+    margin: 10px 0 5px 0;
+}
+
+.form__group input[type='number'] {
+    padding: 10px;
+    max-width: 200px;
+    background-color: var(--light-blue-color);
+    border: none;
+    width: 100%;
+    border-radius: var(--default-border-radius-input);
+    font-size: var(--font-size-h4);
+    font-weight: 500;
+    transition: all 300ms ease-in-out;
+    border: 1px solid var(--light-blue-color);
+}
+
+.form__group input[type='number']:focus {
+    outline: none;
+    border: 1px solid var(--gray-color);
+}
+
+.submit__btns {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    justify-content: space-between;
+   
+    width: 100%;
+}
+
+.submit__btns input {
+    background: #000000;
+    border: none;
+    font-size: var(--font-size-h3);
+    cursor: pointer;
+    color: var(--white-color);
+    padding: 10px 0px;
+}
+
+.submit__btns input:first-child {
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--gray-color);
+    color: #000000;
+    font-size: var(--font-size-h4);
+    cursor: pointer;
+}
+
+.submit__btns input:nth-child(2) {
+    border-radius: 30px;
+    padding: 10px 30px;
+}
+
+.line__equation .form__group {
+    display: flex;
+    flex-direction: row;
+}
+.eq__result{
+display: flex;
+}
+.line__equation label {
+    margin-left: 5px;
+}
+
+.line__equation .form__group input[type='number'] {
+    width: auto;
+}
+
+.line__equation div.form__group:nth-child(4) {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto 10px;
+}
+
+.line__equation div:nth-child(4) input {
+    width: 100% !important;
+    max-width: 93% !important;
+}
+
+.line__equation {
+    flex-wrap: wrap;
+}
+
+.results.inputs {
+    gap: 5px;
+}
+
+#results {
+    display: none;
+    flex-direction: column;
+}
+
+.results>.submit__btns {
+    justify-content: flex-end;
+}
+
+.results>.submit__btns>input[type='submit'] {
+    display: none;
+}
+
+.result__wrapper {
+    background-color: var(--light-blue-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    border-radius: var(--default-border-radius-input);
+    width: 100%;
+}
+
+.results h3 {
+    color: var(--primary-color);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.values__given {
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
+
+.formula {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.formula .formula__eq {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px
+}
+
+.divider {
+    border: 1px solid #000000;
+}
+
+.division {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+.equation {
+    width: 100%;
+    display: none;
+}
+
+.equation .eq {
+    display: block;
+    padding: 20px;
+    background: white;
+    box-shadow: 2px 2px 10px #00000029;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media (max-width:1000px) {
+    .left__area, .right__area {
+        width: 100%;
+        min-height: 0px;
+
+    }
+    .submitbtns {
+        gap: 0px;
+        padding: 0 50px 0 10px;
+    }
+    .submitbtns input{
+        padding: 0;
+    }
+    .submit__btns input:nth-child(2) {
+        border-radius: 30px;
+        padding:5px 10px;
+    }
+    .slope-container{
+        width: 90%;
+    }
+    .line__equation div.form__group:nth-child(4){
+        max-width: min-content;
+    }
+    .line__equation .form__group input[type='number']{
+        max-width: 185px;
+    }
+    .line__equation div:nth-child(4) input{
+        max-width: min-content;
+    }
+    .submit__btns input{
+        padding:0px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    :root {
+        --font-size-h1: 48px;
+        --font-size-h2: 32px;
+        --font-size-h3: 24px;
+        --font-size-h4: 22px;
+        --font-size-default: 18px;
+    }
+}
